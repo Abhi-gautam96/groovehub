@@ -27,9 +27,9 @@ class _MyAppState extends State<MyApp> {
             currentTabindex], //(3)currenttabinex get assign here which call tab form final tab
         backgroundColor: Colors.black,
         bottomNavigationBar: BottomNavigationBar(
-            fixedColor: Colors.blue,
+            fixedColor: Colors.white,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.grey,
             currentIndex:
                 currentTabindex, // (4) send currentindex to bottom navigation bar
             onTap: (currentIndex) {
