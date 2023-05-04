@@ -14,7 +14,8 @@ class _MyAppState extends State<MyApp> {
   final tabs = [
     const Home(),
     const Search(),
-    const MyLibrary()
+    const MyLibrary(),
+    const Placeholder()
   ]; //screens i have
   int currentTabindex = 0; //initial tab index is zero
   @override
@@ -55,6 +56,12 @@ class _MyAppState extends State<MyApp> {
                     color: Colors.white,
                   ),
                   label: 'MyLibrary'),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.library_add_outlined,
+                    color: Colors.white,
+                  ),
+                  label: 'Placeholder'),
             ]));
   }
 }
