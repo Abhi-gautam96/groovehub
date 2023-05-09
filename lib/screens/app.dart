@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:groovehub/screens/home.dart";
 import "package:groovehub/screens/library.dart";
 import "package:groovehub/screens/search.dart";
-import "package:groovehub/screens/MyAccount.dart";
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -16,51 +15,45 @@ class _MyAppState extends State<MyApp> {
     const Home(),
     const Search(),
     const MyLibrary(),
-    const MyAccount(),
   ]; //screens i have
   int currentTabindex = 0; //initial tab index is zero
   @override
   Widget build(BuildContext context) {
-    print("build");
+    // print("build");
     return Scaffold(
-        body: tabs[
-            currentTabindex], //(3)currenttabinex get assign here which call tab form final tab
+        body: tabs[currentTabindex], //(3)currenttabinex get assign here which call tab form final tab
         backgroundColor: Colors.black,
         bottomNavigationBar: BottomNavigationBar(
             fixedColor: Colors.white,
             type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.grey,
-            currentIndex:
-                currentTabindex, // (4) send currentindex to bottom navigation bar
+            backgroundColor: Colors.black,
+            currentIndex: currentTabindex, // (4) send currentindex to bottom navigation bar
             onTap: (currentIndex) {
               //(1)"ontap" function give currentindex
-              currentTabindex =
-                  currentIndex; //(2)which will store in currenttabindex
+              currentTabindex = currentIndex; //(2)which will store in currenttabindex
 
-              print("$currentIndex");
+              // print("$currentIndex");
               setState(() {}); //for changing different tabs
             },
             items: const [
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home,
+                    color: Colors.grey,
                   ),
                   label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.search,
+                    color: Colors.grey,
                   ),
                   label: 'Search'),
               BottomNavigationBarItem(
                   icon: Icon(
                     Icons.library_add_outlined,
+                    color: Colors.grey,
                   ),
                   label: 'MyLibrary'),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.account_box_outlined,
-                  ),
-                  label: 'MyAccount'),
             ]));
   }
 }
