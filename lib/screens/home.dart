@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
     return Container(
       // creating row in grid
 
-      color: Colors.blueGrey.shade400,
+      color: const Color.fromARGB(255, 83, 121, 140),
       child: Row(
         children: [
           Image.network(
@@ -74,9 +74,12 @@ class Home extends StatelessWidget {
           SizedBox(
             height: 200,
             width: 200,
-            child: Image.network(
-              music.imageUrl,
-              fit: BoxFit.cover,
+            child: InkWell(
+              onTap: () {},
+              child: Image.network(
+                music.imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Text(
@@ -101,7 +104,7 @@ class Home extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 300,
@@ -127,9 +130,10 @@ class Home extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           SizedBox(
+            //show music list in a row
             height: 300,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

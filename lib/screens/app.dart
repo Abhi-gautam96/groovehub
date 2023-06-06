@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:groovehub/modals/music.dart";
 import "package:groovehub/screens/home.dart";
 import "package:groovehub/screens/library.dart";
 import "package:groovehub/screens/search.dart";
@@ -17,8 +18,11 @@ class _MyAppState extends State<MyApp> {
     const MyLibrary(),
   ]; //screens i have
   int currentTabindex = 0; //initial tab index is zero
-
-  Widget miniPlyer() {
+  Music? music;
+  Widget miniPlyer(Music? music) {
+    if (music == null) {
+      return const SizedBox();
+    }
     Size deviceSize = MediaQuery.of(context).size;
     return AnimatedContainer(
       duration: const Duration(microseconds: 500),
@@ -29,12 +33,12 @@ class _MyAppState extends State<MyApp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.network(
-            "https://i.scdn.co/image/ab67706c0000da84aec228027248824cc2de2905",
+            music.imageUrl,
             fit: BoxFit.cover,
           ),
-          const Text(
-            'Song A',
-            style: TextStyle(color: Colors.white),
+          Text(
+            music.name,
+            style: const TextStyle(color: Colors.white),
           ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.play_arrow))
         ],
@@ -49,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         body: tabs[currentTabindex], //(3)currenttabinex get assign here which call tab form final tab
         backgroundColor: Colors.black,
         bottomNavigationBar: Column(mainAxisSize: MainAxisSize.min, children: [
-          miniPlyer(),
+          miniPlyer(music),
           BottomNavigationBar(
               fixedColor: Colors.white,
               type: BottomNavigationBarType.fixed,
