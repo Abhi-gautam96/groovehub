@@ -1,6 +1,7 @@
 import 'package:groovehub/modals/music.dart';
 
 class MusicOperations {
+  //(music operation) bring music from netwok and then retrun a "single widegt" of (music) which is a column consist of a image of song,name of the song and the discription of the song
   MusicOperations._();
   static List<Music> getMusic() {
     return <Music>[
